@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+<!--navbar setting-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">FMC Bank</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Branches</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+
+<!--login page setting-->
+<div class="container-fluid">
+    <h3>LOGIN</h3>
+<form action="login" method="POST">
+<!--    {% csrf_token %}-->
+<input type="text" name="username" placeholder="Enter your username"><br>
+<input type="password" name="password" placeholder="Enter your password"><br><br>
+    <a class="btn btn-secondary" href="{% url 'bank_app:welcome' %}">Submit</a><br>
+    <a href="{% url 'bank_app:register' %}">New user?? Register</a>
+</form>
+</div>
+</body>
+</html>

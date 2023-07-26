@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+<!--nav bar setting-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">FMC Bank</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Branches</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<!--form setting-->
+<div class="container-fluid">
+    <h4> ENTER YOUR DETAILS</h4>
+
+<form action="register" method="POST">
+<!--    {%csrf_token %}-->
+    <input type="text" name="name" placeholder="Enter your Name"><br><br>
+    <input type="date" name="dob" placeholder="Enter your Date Of Birth"><br><br>
+    <input type="number" name="age" placeholder="Enter your Age"><br><br>
+    <input type="radio" name="gender" value="male">Male
+    <input type="radio" name="gender" value="female">Female<br><br>
+    <input type="email" name="email" placeholder="Enter your mail id"><br><br>
+    <input type="tel" name="phno" placeholder="Enter your Phone number"><br><br>
+    <input type="text" name="address" placeholder="Enter your Address"><br><br>
+
+
+    <!--    district dropdown-->
+      <label for="dist">Choose District</label>
+  <select id="dist" name="dist">
+      	{% for i in result %}
+    <option value="dist">{{i.district}}</option>
+      {% endfor %}
+  </select>
+<br><br>
+
+
+
+
+    <!--    branch dropdown-->
+      <label for="branch">Choose Branch</label>
+  <select id="branch" name="branch">
+      	{% for i in result1 %}
+    <option value="branch">{{i.branch}}</option>
+      {% endfor %}
+  </select>
+<br><br>
+
+
+
+
+<!--    account type dropdown-->
+      <label for="acc">Choose Account type</label>
+  <select id="acc" name="acc">
+    <option value="savings">Savings Account</option>
+    <option value="current">Current Account</option>
+    <option value="fixed">Fixed Deposit Account</option>
+    <option value="salary">Salary Account</option>
+  </select>
+    <br><br>
+<!--    materials provided checkbox-->
+     <label>Select the materials provided</label><br>
+      <input type="checkbox" id="debit" name="debit" value="debit">
+  <label for="debit"> Debit Card</label><br>
+  <input type="checkbox" id="credit" name="credit" value="credit">
+  <label for="credit"> Credit Card</label><br>
+  <input type="checkbox" id="cb" name="cb" value="cb">
+  <label for="cb"> Cheque book</label><br><br>
+
+    <a class="btn btn-secondary" href="{% url 'bank_app:msgbox' %}">Submit</a>&nbsp;
+
+    <a class="btn btn-secondary" href="{% url 'bank_app:home' %}">LogOut</a><br>
+
+
+
+</form>
+    {% for msg in messages %}
+    <h2>{{msg}}</h2>
+    {% endfor %}
+    </div>
+
+</body>
+</html>
